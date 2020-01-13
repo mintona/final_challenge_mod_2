@@ -8,4 +8,8 @@ class Flight <ApplicationRecord
   def number_of_minors
     passengers.where("age < 18").count
   end
+
+  def number_of_adults
+    passengers.where("age >= 18").count
+  end
 end
