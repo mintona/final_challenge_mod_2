@@ -10,7 +10,7 @@
   <section id = "add-flight">
     <h3> Assign Passenger to a Flight </h3>
 
-      <%= form_tag passenger_path(@passenger.id), method: :post do %>
+      <%= form_tag passenger_path(@passenger.id), method: :patch do %>
 
         <%= label_tag :flight_number %>
         <%= text_field_tag :flight_number %>
