@@ -37,6 +37,8 @@ RSpec.describe "As a visitor" do
     end
 
     it "I can fill in the form to add a flight by entering the flight number" do
+      expect(@southwest_2.passengers.include?(@passenger_1)).to eq(false)
+
       visit passenger_path(@passenger_1.id)
 
       within "#passenger-flights" do
@@ -47,7 +49,7 @@ RSpec.describe "As a visitor" do
 
       within "#add-flight" do
         fill_in "Flight number", with: @southwest_2.number
-    
+
         click_button "Submit"
       end
 
@@ -56,6 +58,8 @@ RSpec.describe "As a visitor" do
       within "#passenger-flights" do
         expect(page).to have_link(@southwest_2.number)
       end
+
+      expect(@southwest_2.passengers.include?(@passenger_1)).to eq(true)
     end
   end
 end
