@@ -13,11 +13,13 @@ RSpec.describe "As a visitor" do
       @passenger_2 = Passenger.create(name: "Emily Beardlsey", age: 17)
       @passenger_3 = Passenger.create(name: "Jack Beardlsey", age: 4)
       @passenger_4 = Passenger.create(name: "Rick Vermeil", age: 18)
+      @passenger_5 = Passenger.create(name: "Alex Minton", age: 18)
 
       PassengerFlight.create(passenger: @passenger_1, flight: @southwest_1)
       PassengerFlight.create(passenger: @passenger_2, flight: @southwest_1)
       PassengerFlight.create(passenger: @passenger_3, flight: @southwest_1)
       PassengerFlight.create(passenger: @passenger_4, flight: @american_1)
+      PassengerFlight.create(passenger: @passenger_5, flight: @southwest_1)
     end
 
     it "I see that flights information and airline" do
@@ -45,6 +47,7 @@ RSpec.describe "As a visitor" do
       expect(page).to have_content(@passenger_1.name)
       expect(page).to have_content(@passenger_2.name)
       expect(page).to have_content(@passenger_3.name)
+      expect(page).to have_content(@passenger_5.name)
       expect(page).to_not have_content(@passenger_4.name)
     end
 
