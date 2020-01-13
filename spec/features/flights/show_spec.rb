@@ -10,9 +10,9 @@ RSpec.describe "As a visitor" do
       @american_1 = american.flights.create(number: "SW2", date: "12/08/19", time: "0900", departure_city: "Baltimore", arrival_city: "Oakland")
 
       @passenger_1 = Passenger.create(name: "Alison Vermeil", age: 34)
-      @passenger_2 = Passenger.create(name: "Emily Beardlsey", age: 32)
+      @passenger_2 = Passenger.create(name: "Emily Beardlsey", age: 17)
       @passenger_3 = Passenger.create(name: "Jack Beardlsey", age: 4)
-      @passenger_4 = Passenger.create(name: "Rick Vermeil", age: 34)
+      @passenger_4 = Passenger.create(name: "Rick Vermeil", age: 18)
 
       PassengerFlight.create(passenger: @passenger_1, flight: @southwest_1)
       PassengerFlight.create(passenger: @passenger_2, flight: @southwest_1)
@@ -46,6 +46,18 @@ RSpec.describe "As a visitor" do
       expect(page).to have_content(@passenger_2.name)
       expect(page).to have_content(@passenger_3.name)
       expect(page).to_not have_content(@passenger_4.name)
+    end
+
+    it "I see the number of minors on the flight (passengers under 18)" do
+      visit flight_path(@southwest_1)
+
+      expect(page).to have_content("Number of Minors: #{@southwest_1.number_of_minors}")
+    end
+
+    xit "I see the number of adults on the flight (passengers 18 and older)" do
+      visit flight_path(@southwest_1)
+
+      expect(page).to have_content("Number of Minors: #{@southwest_1.number_of_adults}")
     end
   end
 end
