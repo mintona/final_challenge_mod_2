@@ -6,3 +6,15 @@
                       <% end %>
       </p>
     </section>
+
+  <section id = "add-flight">
+    <h3> Assign Passenger to a Flight </h3>
+
+      <%= form_tag passenger_path(@passenger.id), method: :post do %>
+
+        <%= label_tag :flight_number %>
+        <%= text_field_tag :flight_number %>
+
+        <%= submit_tag 'Submit' %>
+      <% end %>
+  </section>
