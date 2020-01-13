@@ -37,5 +37,11 @@ RSpec.describe Flight, type: :model do
         expect(@southwest_1.number_of_minors).to eq(2)
       end
     end
+
+    describe '#number_of_adults' do
+      it 'calculates the number of passengers who are greater than or equal to 18 years old' do
+        expect(@southwest_1.number_of_adults).to eq(2)
+      end
+    end
   end
 end
