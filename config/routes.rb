@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get '/airlines/:id', to: 'airlines#show'
 
   resources :flights, only: [:show]
+
+  resources :passengers, only: [:show]
 end
