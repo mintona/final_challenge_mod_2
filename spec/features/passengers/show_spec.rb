@@ -43,10 +43,11 @@ RSpec.describe "As a visitor" do
         expect(page).to_not have_link(@southwest_2.number)
       end
 
-      expect(page).to have_content("Add a Flight")
+      expect(page).to have_content("Assign Passenger to a Flight")
 
       within "#add-flight" do
         fill_in "Flight number", with: @southwest_2.number
+    
         click_button "Submit"
       end
 
