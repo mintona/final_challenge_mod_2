@@ -6,5 +6,7 @@ Rails.application.routes.draw do
 
   resources :flights, only: [:show]
 
-  resources :passengers, only: [:show, :update]
+  resources :passengers, only: [:show]
+
+  patch '/passenger_flights', to: 'passenger_flights#update'
 end
