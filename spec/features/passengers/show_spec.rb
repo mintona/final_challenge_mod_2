@@ -7,17 +7,12 @@ RSpec.describe "As a visitor" do
       american = Airline.create(name: "American")
 
       @southwest_1 = southwest.flights.create(number: "SW1", date: "10/10/20", time: "1300", departure_city: "Minneapolis", arrival_city: "Nashville")
-      @american_1 = american.flights.create(number: "SW2", date: "12/08/19", time: "0900", departure_city: "Baltimore", arrival_city: "Oakland")
+      @american_1 = american.flights.create(number: "AM1", date: "12/08/19", time: "0900", departure_city: "Baltimore", arrival_city: "Oakland")
 
       @passenger_1 = Passenger.create(name: "Alison Vermeil", age: 34)
-      # @passenger_2 = Passenger.create(name: "Emily Beardlsey", age: 32)
-      # @passenger_3 = Passenger.create(name: "Jack Beardlsey", age: 4)
-      # @passenger_4 = Passenger.create(name: "Rick Vermeil", age: 34)
 
       PassengerFlight.create(passenger: @passenger_1, flight: @southwest_1)
       PassengerFlight.create(passenger: @passenger_1, flight: @american_1)
-      # PassengerFlight.create(passenger: @passenger_3, flight: @southwest_1)
-      # PassengerFlight.create(passenger: @passenger_4, flight: @american_1)
     end
 
     it "I see that passengers name" do
