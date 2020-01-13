@@ -6,7 +6,7 @@ class PassengersController < ApplicationController
   def update
     passenger = Passenger.find(params[:id])
     flight = Flight.find_by(number: params[:flight_number])
-    PassengerFlight.create(passenger: passenger, flight: flight)
+    flight.passengers << passenger
 
     redirect_to passenger_path(params[:id])
   end
