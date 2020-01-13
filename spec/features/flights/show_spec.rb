@@ -57,10 +57,10 @@ RSpec.describe "As a visitor" do
       expect(page).to have_content("Number of Minors: #{@southwest_1.number_of_minors}")
     end
 
-    xit "I see the number of adults on the flight (passengers 18 and older)" do
+    it "I see the number of adults on the flight (passengers 18 and older)" do
       visit flight_path(@southwest_1)
 
-      expect(page).to have_content("Number of Minors: #{@southwest_1.number_of_adults}")
+      expect(page).to have_content("Number of Adults: #{@southwest_1.number_of_adults}")
     end
   end
 end
